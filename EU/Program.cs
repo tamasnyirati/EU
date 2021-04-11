@@ -28,7 +28,7 @@ namespace EU
             int csatlakozok2007ben = 0;
             for (int i = 0; i < N; i++)
             {
-                if (tagallamok[i].getCsatlakozasDatuma().Contains("2007"))
+                if (tagallamok[i].getCsatlakozasDatuma().Year == 2007)
                 {
                     csatlakozok2007ben++;
                 }
@@ -46,15 +46,30 @@ namespace EU
 
             //6. feladat
             bool majusiCsatlakozás = false;
+            var majus = new DateTime(2004, 5, 1);
+            
             for (int i = 0; i < N; i++)
             {
-                if (tagallamok[i].getCsatlakozasDatuma().Contains("05.01"))
+                if (tagallamok[i].getCsatlakozasDatuma().Equals(majus))
                 {
                     majusiCsatlakozás = true;
                 }
             }
                 Console.Write("6. feladat: Májusban ");
                 Console.WriteLine(majusiCsatlakozás? "volt csatlakozás" : "nem volt csatlakozás");
+
+            //7. feladat
+            var legregebbiDatum = new DateTime(1900, 1, 1);
+            string keresettOrszag = "";
+            for (int i = 0; i < N; i++)
+            {
+                if (tagallamok[i].getCsatlakozasDatuma() > legregebbiDatum)
+                {
+                    legregebbiDatum = tagallamok[i].getCsatlakozasDatuma();
+                    keresettOrszag = tagallamok[i].getOrszag();
+                }
+            }
+            Console.WriteLine($"7. feladat: Leguoljára csatlakozott ország: {keresettOrszag} ");
 
             Console.ReadLine();
         }
