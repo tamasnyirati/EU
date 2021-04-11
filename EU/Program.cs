@@ -19,8 +19,12 @@ namespace EU
                 Tagallam eutag = new Tagallam(item);
                 tagallamok.Add(eutag);
             }
-           
-            
+
+            //3. feladat
+            int N = tagallamok.Count;
+            Console.WriteLine($"3. feladat: EU tagállamainak a száma: {N}");
+
+            Console.ReadLine();
         }
     }
 }
