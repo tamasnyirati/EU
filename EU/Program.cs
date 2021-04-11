@@ -24,6 +24,17 @@ namespace EU
             int N = tagallamok.Count;
             Console.WriteLine($"3. feladat: EU tagállamainak a száma: {N}");
 
+            //4. feladat
+            int csatlakozok2007ben = 0;
+            for (int i = 0; i < N; i++)
+            {
+                if (tagallamok[i].getCsatlakozasDatuma().Contains("2007"))
+                {
+                    csatlakozok2007ben++;
+                }
+            }
+            Console.WriteLine($"4. feladat: 2007-ben {csatlakozok2007ben} ország csatlakozott.");
+
             Console.ReadLine();
         }
     }
