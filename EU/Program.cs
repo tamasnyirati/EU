@@ -44,6 +44,18 @@ namespace EU
                 }
             }
 
+            //6. feladat
+            bool majusiCsatlakozás = false;
+            for (int i = 0; i < N; i++)
+            {
+                if (tagallamok[i].getCsatlakozasDatuma().Contains("05.01"))
+                {
+                    majusiCsatlakozás = true;
+                }
+            }
+                Console.Write("6. feladat: Májusban ");
+                Console.WriteLine(majusiCsatlakozás? "volt csatlakozás" : "nem volt csatlakozás");
+
             Console.ReadLine();
         }
     }
