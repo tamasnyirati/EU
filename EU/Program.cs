@@ -38,7 +38,7 @@ namespace EU
             //5. feladat
             for (int i = 0; i < N; i++)
             {
-                if(tagallamok[i].getOrszag() == "Magyarország")
+                if (tagallamok[i].getOrszag() == "Magyarország")
                 {
                     Console.WriteLine($"5. feladat: Magyarország csatlakozásának a dátuma {tagallamok[i].getCsatlakozasDatuma()}");
                 }
@@ -47,7 +47,7 @@ namespace EU
             //6. feladat
             bool majusiCsatlakozás = false;
             var majus = new DateTime(2004, 5, 1);
-            
+
             for (int i = 0; i < N; i++)
             {
                 if (tagallamok[i].getCsatlakozasDatuma().Equals(majus))
@@ -55,8 +55,8 @@ namespace EU
                     majusiCsatlakozás = true;
                 }
             }
-                Console.Write("6. feladat: Májusban ");
-                Console.WriteLine(majusiCsatlakozás? "volt csatlakozás" : "nem volt csatlakozás");
+            Console.Write("6. feladat: Májusban ");
+            Console.WriteLine(majusiCsatlakozás ? "volt csatlakozás" : "nem volt csatlakozás");
 
             //7. feladat
             var legregebbiDatum = new DateTime(1900, 1, 1);
@@ -71,7 +71,36 @@ namespace EU
             }
             Console.WriteLine($"7. feladat: Leguoljára csatlakozott ország: {keresettOrszag} ");
 
-            Console.ReadLine();
+            //8. feladat
+            List<DateTime> evlista = new List<DateTime>();
+            bool szerepelE = false;
+            for (int i = 0; i < N; i++)
+            {
+                if (tagallamok[i].getCsatlakozasDatuma() == evlista[i])
+                {
+                    szerepelE = true;
+                }
+                else
+                {
+                    evlista.Add(tagallamok[i].getCsatlakozasDatuma());
+                }
+            }
+
+            int[] evListaSeged = new int[evlista.Count];
+            for (int i = 0; i < evlista.Count; i++)
+            {
+                if (tagallamok[i].getCsatlakozasDatuma() == evlista[i])
+                {
+                    evListaSeged[i]++;
+                }
+            }
+            for (int i = 0; i < evListaSeged.Length; i++)
+            {
+                Console.WriteLine("\t" + evlista[i].Year + ": " + evListaSeged[i] + " orszag");
+
+
+                Console.ReadLine();
+            }
         }
     }
 }
