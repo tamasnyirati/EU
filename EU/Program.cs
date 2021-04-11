@@ -35,6 +35,15 @@ namespace EU
             }
             Console.WriteLine($"4. feladat: 2007-ben {csatlakozok2007ben} ország csatlakozott.");
 
+            //5. feladat
+            for (int i = 0; i < N; i++)
+            {
+                if(tagallamok[i].getOrszag() == "Magyarország")
+                {
+                    Console.WriteLine($"5. feladat: Magyarország csatlakozásának a dátuma {tagallamok[i].getCsatlakozasDatuma()}");
+                }
+            }
+
             Console.ReadLine();
         }
     }
